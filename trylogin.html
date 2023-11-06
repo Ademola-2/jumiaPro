@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../Desktop/javascript/bootstrap-5.3.0-alpha3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="signup.css">
+    <link rel="shortcut icon" href="ei_1696496266274-removebg-preview.png" type="image/x-icon">
+    <title>jumia/log In</title>
+</head>
+<body>
+    <div class="container">
+        <img src="ei_1696496266274-removebg-preview.png" alt="">
+        <h3>welcome to Jumia</h3>
+        <p>Type your e-mail or phone number to log in or create a Jumia account</p>
+
+        <div class="input-group mb-3">
+            <input class="form-control" type="text" id="username" placeholder="Enter your E-mail or Phone Number" required>
+        </div>
+        <div class="input">
+            <button type="button" class="btn1" onclick="handleLogin()">Log In</button>
+        </div><br><br><br>
+        <div class="input">
+            <button class="btn0">log in with Facebook</button>
+        </div>
+        <div class="nab">
+            <p>For Further support, you may visit the Help center or contact our customer Service team.</p>
+            <img src="download-removebg-preview (1).png" alt="">
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    // Function to handle login
+function handleLogin() {
+    // Get form values
+    const emailPhone = document.getElementById("username").value;
+
+    // Retrieve user data from localStorage
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    // Check if the provided username and password match any user
+    const user = users.find(u => u.emailPhone === emailPhone);
+
+    if (user) {
+        alert("Login successful!");
+
+        // Save user information to local storage
+        localStorage.setItem("loggedInUser", JSON.stringify(user));
+
+        // Redirect to a dashboard or home page
+        window.location.href = "password.html"; // Assuming the dashboard page is named "dashboard.html"
+    } else {
+        window.location.href = "signup.html"
+    }
+}
+
+</script>

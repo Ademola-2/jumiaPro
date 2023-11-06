@@ -1,0 +1,33 @@
+.adenn{
+    padding: 10px 0 10px 0;
+    overflow:hidden;
+    margin: auto;
+    transition: all ease-in-out 0.3s;
+    background: aqua;
+    margin: 4px;
+    border-radius: 10px;
+}
+.adenn img{
+    width: 180px;
+    height: 150px;
+}
+.adenn p{
+    font-size: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: inherit;
+
+}
+.adenn:hover{
+    transform: translateY(-5px);
+    box-shadow: 1px 0 3px #ffffff41;
+}
+#productList{
+    position: relative;
+    width: 95%;
+     margin: auto;
+     background: purple;
+}
+*{
+    margin: 0;
+    padding: 0;
+}

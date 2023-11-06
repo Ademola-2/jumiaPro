@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Summary</title>
+</head>
+<style>
+    table,
+    td,
+    th {
+        border: 1px solid black;
+    }
+    body{
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+    table{
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td{
+        padding: 8px;
+        text-align: left;
+    }
+    button{
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border: 0;
+        cursor: pointer;
+        }
+        button:hover{
+            background-color: #0056b3;
+        }
+</style>
+
+<body>
+    <span>
+        <h2 id="userEmail"></h2>
+    </span>
+
+    <h2>Cart Items</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price (₦)</th>
+                <th>Quantity</th>
+            </tr>
+            <tr></tr>
+        </thead>
+        <tbody id="cartItems">
+            <!-- Cart items will be inserted here -->
+        </tbody>
+    </table>
+
+    <h2>Total Price</h2>
+    <p id="totalPrice">Total Price: </p>
+
+    <button id="but" onclick="printReceipt()">Print Receipt</button>
+</body>
+
+</html>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Retrieve payment data from local storage
+        const paymentData = JSON.parse(localStorage.getItem("paymentData"));
+
+        // Check if payment data exists
+        if (paymentData) {
+            // Display user email
+            document.getElementById("userEmail").textContent = `Username:${paymentData.user.username}`;
+
+            // Display cart items
+            const cartItems = document.getElementById("cartItems");
+            cartItems.innerHTML = "";
+            paymentData.cart.forEach(item => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                <td>${item.title}</td>
+                <td>${item.price}</td>
+                <td>${item.quantity}</td>
+            `;
+                cartItems.appendChild(row);
+            });
+
+            // Display total price
+            document.getElementById("totalPrice").textContent = `Total Price: ₦${paymentData.totalPrice}`;
+        } else {
+            // Handle the case where payment data is not available
+            console.log("Payment data not found.");
+        }
+    });
+
+    function printReceipt() {
+        // Get the content of the payment summary page
+        but = document.getElementById("but")
+        but.style.display = "none"
+        const paymentSummaryPage = document.documentElement.outerHTML;
+
+        // Open a new window for printing
+        const printWindow = window.open('', '', 'width=800,height=600');
+        printWindow.document.open();
+        printWindow.document.write(paymentSummaryPage);
+        printWindow.document.close();
+
+        // Wait for the page to load, and then trigger the print dialog
+        printWindow.addEventListener('load', function () {
+            printWindow.print();
+            printWindow.close();
+        });
+    }
+
+
+</script>

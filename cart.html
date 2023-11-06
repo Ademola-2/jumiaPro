@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jumia/cart</title>
+    <script src="https://kit.fontawesome.com/5f80576e58.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="bootstrap-5.3.0-alpha3-dist/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="ei_1696496266274-removebg-preview.png" type="image/x-icon">
+    <link rel="stylesheet" href="product.css">
+    <script src="https://checkout.flutterwave.com/v3.js"></script>
+</head>
+
+<body>
+    <div class="nav">
+        <img class="navv" src="Jumia-cover-you.gif" alt="">
+    </div>
+    <div class="sell">
+        <div class="sel">
+            <img src="ei_1696496266274-removebg-preview.png" alt=""><span><a href="sells on jumia.html">sell on jumia</a></span>
+        </div>
+        <div class="selll">
+            <img src="download-removebg-preview (1).png" alt="">
+        </div>
+        <div><i class="fab fa-apple-pay"></i></div>
+    </div>
+    <header>
+        <a class="div0 lll" href="index.html"><i class="fas fa-home"></i></a>
+        <img class="img" src="download-removebg-preview (1).png" alt="">
+        <input type="text" placeholder="Search products, brands and categories">
+        <i class="fas fa-search lam"></i>
+        <button class="Search">SEARCH</button>
+        <div class="div">
+            <div class="bf" id="var1">
+                <button class="div0">
+                    <i class="far fa-user"></i>
+                    <span>Account</span>
+                    <i class="fas fa-caret-down"></i>
+                </button>
+                <div class="nava">
+                    <div class="Sign">
+                        <button class="btn1" onclick="sign()">SIGN IN</button>
+                    </div>
+                    <hr>
+                    <div class="aw">
+                        <button class="Awa"><i class="far fa-user"></i> <span>My Account</span></button><br>
+                        <button class="Awa"><i class="fas fa-shopping-cart"></i> <span>Orders</span></button><br>
+                        <button class="Awa"><i class="far fa-heart"></i> <span>Saved items</span></button><br>
+                    </div>
+                </div>
+            </div>
+            <div class="bf" id="bf">
+                <button id="span">
+                    <i class="far fa-user"></i>
+                    <span id="sss"></span>
+                    <i class="fas fa-caret-down"></i>
+                </button>
+                <div class="nava">
+                    <div class="aw">
+                        <button class="Awa"><i class="far fa-user"></i> <span>My Account</span></button><br>
+                        <button class="Awa"><i class="fas fa-shopping-cart"></i> <span>Orders</span></button><br>
+                        <button class="Awa"><i class="far fa-heart"></i> <span>Saved items</span></button><br>
+                    </div>
+                    <hr>
+                    <div class="Sign">
+                        <button class="btn1" onclick="logout()">LOG OUT</button>
+                    </div>
+                </div>
+            </div>
+            <div class="bf">
+                <button class="div0">
+                    <i class="far fa-question-circle"></i>
+                    <span>Help</span>
+                    <i class="fas fa-caret-down"></i>
+                </button>
+                <div class="nava">
+                    <p class="Awa">Help Center</p>
+                    <p class="Awa">Place an order</p>
+                    <p class="Awa">Payment options</p>
+                    <p class="Awa">Track an order</p>
+                    <p class="Awa">Cancel an order</p>
+                    <p class="Awa">Return and Refunds</p>
+                    <hr>
+                    <button class="btn1"><i class="far fa-comment-dots"></i> LIVE CHAT</button>
+                </div>
+            </div>
+            <button class="div0" onclick="goToCart()">
+                <span id="counter"></span>
+                <i class="fas fa-shopping-cart"></i>
+                <span>Cart</span>
+            </button>
+        </div>
+    </header>
+    <div class="dddd">
+        <h5 id="total-price">Total Price: ₦0</h5>
+        <button class="btn btn-primary w-50" type="button" id="pay-button" onclick="makePayment()">Check Out</button>
+    </div>
+    <div id="cart">
+        <!-- Cart items will be added dynamically using JavaScript -->
+        <!-- https://sandbox-flw-web-v3.herokuapp.com/pay/jaklkmvzfirh -->
+    </div>
+</body>
+</html>
+
+
+
+<script src="cart.js"></script>
+
+
+

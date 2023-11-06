@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap-5.3.0-alpha3-dist/css/bootstrap.min.css">
+    <style>
+        .dd {
+            display: flex;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            margin-top: 100px;
+        }
+
+        .div1 {
+            margin-top: 200px;
+            margin: 20px;
+            padding: 50px;
+            width: 40%;
+        }
+
+        .div1 img {
+            width: 100%;
+            margin: auto;
+        }
+
+        body {
+            background-color: rgb(245, 245, 245);
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .div2 {
+            background-color: #fff;
+            margin-top: 200px;
+            margin: 20px;
+            padding: 50px;
+            width: 50%;
+            border-radius: 10px;
+        }
+
+        .div2 button {
+            background-color: orange;
+            margin-top: 20px;
+            color: white;
+            font-size: 20px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: 600;
+        }
+
+        /* Style the select element */
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            font-size: 16px;
+            color: #333;
+        }
+
+        /* Style the select options */
+        select option {
+            font-size: 16px;
+            background-color: #fff;
+            padding: 10px;
+            color: #333;
+        }
+        select option:hover {
+            background-color: #e2e2e2;
+            cursor: pointer;
+        }
+
+        @media (max-width: 500px){
+            .div1{
+                display: none;
+            }
+            .div2{
+                width: 100%;
+                margin: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dd">
+        <div class="div1">
+            <img src="signup-background.svg" alt="">
+        </div>
+        <div class="div2 container mt-4">
+            <select class="form-select" aria-label="Default select example" name="country" id="country">
+                <option value="">Select Your Country</option>
+                <option value="Algeria">Algeria</option>
+                <option value="Canada">Canada</option>
+                <option value="Kenya">Kenya</option>
+                <option value="Niger">Niger</option>
+                <option value="Nigeria">Nigeria</option>
+                <option value="South-Africa">South-Africa</option>
+                <option value="Senegal">Senegal</option>
+                <option value="Uganda">Uganda</option>
+            </select>
+            <button class="form-control" onclick="Continue()">Continue</button>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    function Continue() {
+        const selectedCountry = document.getElementById("country").value;
+        if (selectedCountry === "") {
+            alert("Please select your country.");
+        } else {
+            setTimeout(() => {
+                window.location.href = "email-sells.html";
+            }, 3000);
+        }
+    }
+</script>

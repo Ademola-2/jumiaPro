@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap-5.3.0-alpha3-dist/css/bootstrap.min.css">
+    <style>
+        .dd {
+            display: flex;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+        }
+
+        .div1 {
+            margin-top: 200px;
+            margin: 20px;
+            padding: 50px;
+            width: 40%;
+        }
+
+        .div1 img {
+            width: 100%;
+            margin: auto;
+        }
+
+        body {
+            background-color: rgb(245, 245, 245);
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .div2 {
+            background-color: #fff;
+            margin-top: 200px;
+            margin: 20px;
+            padding: 50px;
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .but {
+            background-color: orange;
+            margin-top: 20px;
+            color: white;
+            font-size: 20px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: 600;
+        }
+
+        #verificationInput {
+            margin-top: 10px;
+            display: none;
+            width: 100%;
+        }
+
+        #verificationInput input {
+            width: 100%;
+        }
+
+        #verificationInput.show {
+            display: block;
+        }
+
+        .container {
+            display: flex;
+            margin-top: 100px;
+        }
+
+        .col {
+            text-align: center;
+            width: 60%;
+        }
+
+
+
+
+        @media (max-width: 500px){
+            .div1{
+                display: none;
+            }
+            .col,.div2{
+                width: 100%;
+                margin: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="dd">
+            <div class="col-md-6 div1">
+                <img src="signup-background.svg" alt="Background Image">
+            </div>
+            <div class="col">
+                <h5>Setup your account</h5>
+                <p>Please provide your email address to create your seller account</p>
+                <div class="div2">
+                    <form>
+                        <div class="input-group mb-3" >
+                        <input class="form-control" type="name" placeholder="Enter Your Firstname" id="firstname" required><br>
+                        </div>
+                        <div class="input-group mb-3" >
+                        <input class="form-control" type="name" placeholder="Enter Your Lastname (Optional)" id="lastname" required><br>
+                        </div>
+                        <div class="input-group mb-3" >
+                        <input class="form-control" type="email" placeholder="Enter Your Email" id="email" required><br>
+                        </div>
+                        <div class="input-group mb-3" >
+                            <input class="form-control" type="password" placeholder="******" id="password" required>
+                            <button class="btn btn-success" onclick="showPassword()">S</button>
+                        </div>
+                        <button class="form-control but" type="button" id="generateCode" onclick="generateVerificationCode()">Verify</button>
+                        <div id="verificationInput">
+                            <input class="form-control" type="text" placeholder="Verification Code"
+                                id="verificationCode" required>
+                            <button class="form-control but" type="button" id="generateCode" onclick="confirmVerificationCode()">Verify</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function generateVerificationCode() {
+            // Get the user's email input
+            const firstname = document.getElementById('firstname').value;
+            const lastname = document.getElementById('lastname').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Check if any of the fields are empty
+            if (firstname === '' || email === '' || password === '') {
+                alert('All fields must be filled out.');
+                return;
+            }
+            const existingUser = JSON.parse(localStorage.getItem('user'));
+            if (existingUser && existingUser.email === email) {
+                alert('Email already exists. Please use a different email.');
+                return;
+            }
+            if (existingUser && existingUser.firstname === firstname) {
+                alert('Firstname already exists. Please use a different Firstname.');
+                return;
+            }
+
+            // Generate a numeric verification code
+            const verificationCode = generateNumericVerificationCode();
+
+            const user = {
+                firstname: firstname,
+                lastname: lastname,
+                email: email,
+                password: password
+            };
+
+            // Save the user object to local storage
+            localStorage.setItem('user', JSON.stringify(user))
+
+            // Save the verification code to local storage
+            localStorage.setItem('verificationCode', verificationCode);
+
+            // Send the verification code to the user (in a real application, you would send it via email or another method)
+            alert(`Verification code: ${verificationCode}`);
+
+            // Hide the "Generate Code" button and show the verification input
+            document.getElementById('generateCode').style.display = 'none';
+            document.getElementById('verificationInput').classList.add('show');
+        }
+
+        function confirmVerificationCode() {
+            // Get the user's entered verification code
+            const enteredCode = document.getElementById('verificationCode').value;
+
+            // Retrieve the stored verification code from local storage
+            const storedCode = localStorage.getItem('verificationCode');
+
+            if (enteredCode === storedCode) {
+                alert('Verification successful!');
+                window.location.href = "admin.html"
+                // You can redirect the user to a success page or perform other actions
+            } else {
+                alert('Verification failed. Please try again.');
+                // You can clear the input field or perform other actions for a failed verification
+            }
+        }
+
+        function generateNumericVerificationCode() {
+            // Generate a random numeric code (e.g., using Math.random)
+            const min = 1000; // Minimum code value
+            const max = 9999; // Maximum code value
+            return String(Math.floor(Math.random() * (max - min + 1) + min));
+        }
+
+        function showPassword() {
+            const passwordInput = document.getElementById('password');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+            } else {
+                passwordInput.type = 'password';
+            }
+        }
+
+    </script>
+</body>
+
+</html>

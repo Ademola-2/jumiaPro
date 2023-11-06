@@ -1,0 +1,75 @@
+body{
+    background-color: rgb(245,245,245);
+}
+label{
+   margin-left:-50% ;
+   color: #CCC;
+}
+input{
+    border-color: orange;
+    border: orange -1px;
+    outline: orange;
+    width: 100%;
+    margin: auto;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+ .btn1{
+    color: white;
+    font-size: large;
+    font-weight: 600;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background: orange;
+    width: 95%;
+    margin: auto;
+    margin-top: 10px;
+    padding: 10px;
+    border: 0;
+
+}
+ .btn0{
+    color: white;
+    font-size: large;
+    font-weight: 600;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background: rgba(0, 0, 255, 0.742);
+    width: 95%;
+    margin: auto;
+    padding: 10px;
+    border: 0;
+
+}
+.container{
+    justify-content: center;
+    align-items: center;
+    display: block;
+    width: 40%;
+    margin: auto;
+    background: #fff;
+    text-align: center;
+}
+img{
+    width: 20%;
+    margin-top: 20px;
+}
+.nab{
+    margin-top: 10%;
+    font-size: larger;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 400;
+    font-style: oblique;
+    font-stretch: wider;
+    color: #CCC;
+}
+a{
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 500;
+    padding-left: 10px;
+}
+a:hover{
+    color: orange;
+    text-decoration: underline;
+}

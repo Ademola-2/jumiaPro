@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap-5.3.0-alpha3-dist/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/7dfbd8cf9c.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="ei_1696496266274-removebg-preview.png" type="image/x-icon">
+    <link rel="stylesheet" href="../icofont/icofont.css">
+    <link rel="stylesheet" href="signup.css">
+    <title>jumia/sign Up</title>
+</head>
+<body>
+    <div class="container">
+        <img src="ei_1696496266274-removebg-preview.png" alt="">
+        <h3>welcome to Jumia</h3>
+        <p>Type your e-mail or phone number to log in or create a Jumia account</p>
+        <div class="input" >
+            <input placeholder="Enter your E-mail or Phone" class="form" type="text" id="emailPhone" required>
+        </div>
+        <div class="input-group mb-3" >
+            <input class="form-control" type="text" id="username" placeholder="username" required>
+        </div>
+        <div class="input-group mb-3" >
+            <input class="form-control" type="password" id="password" placeholder="******" required>
+            <button class="btn btn-success" id="togglePassword" style="height: 39px;" onclick="togglePassword()"><i class="fa-regular fa-eye-slash"></i></button>
+        </div>
+        <div class="input-group mb-3" >
+            <input class="form-control" type="password" id="confirmPassword" placeholder="******" required>
+            <button class="btn btn-success" id="toggleConfirmPassword" style="height: 39px;" onclick="toggleConfirmPassword()"><i class="fa-regular fa-eye-slash"></i></button>
+        </div>
+        <div class="input" >
+            <button class="btn1" onclick="Signup(event)">Continue</button>
+        </div><br><br><br>
+        <div class="input" >
+            <button class="btn0">log in with Facebook</button>
+        </div>
+        <span>Already Have an Account<a href="login page.html"> LogIn</a></span>
+        <div class="nab">
+            <p>For Further support, you may visit the Help center or contact our customer Service team.</p>
+            <img src="download-removebg-preview (1).png" alt="">
+        </div>
+    </div>
+</body>
+</html>
+
+<script src="signup.js"></script>
